@@ -1,4 +1,4 @@
-import api from "./interceptorService";
+import api from "../interceptors/interceptorService";
 
 export const getMovies = async (param: string, search: string): Promise<any> => {
     try {
