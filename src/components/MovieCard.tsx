@@ -13,10 +13,9 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
       hoverable
       cover={<img alt={Title} src={Poster} className="h-110" />}
     >
-          <h2 className="font-semibold">{Title}</h2>
-          <p className="text-gray-500">Año: {Year}</p>
-        
-        <Button block variant="solid" color="purple">Ver Detalle</Button>
+      <h2 className="font-semibold">{Title}</h2>
+      <p className="text-gray-500">Año: {Year}</p>
+      <Button block variant="solid" color="purple">Ver Detalle</Button>
     </Card>
   )
 }
