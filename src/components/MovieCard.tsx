@@ -9,7 +9,7 @@ export interface MovieCardProps {
 export const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   const { Title, Poster, Year } = movie;
   return (
-    <Card className="border border-gray-300 shadow-sm"
+    <Card className="border border-gray-300 shadow-sm w-full"
       hoverable
       cover={<img alt={Title} src={Poster} className="max-h-110" />}
     >

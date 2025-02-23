@@ -10,9 +10,9 @@ export interface MoviesGridProps {
 
 export const MoviesGrid: React.FC<MoviesGridProps> = ({ movies }) => {
   return (
-    <Row gutter={[16, 16]} justify="center" className="my-10">
+    <Row gutter={[16, 16]} justify="center" className="mx-10 sm:p-10">
       {movies.map((movie: Movie) => (
-        <Col key={movie.imdbID} xs={24} sm={12} md={12} lg={8} xl={6}>
+        <Col key={movie.imdbID} xs={24} sm={12} md={8} lg={6} xl={4}>
           <MovieCard movie={movie} />
         </Col>
       ))}

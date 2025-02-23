@@ -25,7 +25,6 @@ export const HomeAlerts: React.FC<HomeAlertsProps> = ({ search, error }) => {
           description="¡Este es el lugar indicado, aquí puedes buscar tus peliculas y series favoritas!"
           type="info"
           showIcon
-          closable
         />
       )}
     </Row>

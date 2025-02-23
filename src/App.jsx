@@ -9,9 +9,7 @@ const App = () => {
     <Layout>
       <CustomHeader />
       <Content className="mt-14 px-0 sm:px-[48px] bg-white">
-        <div className="p-4 sm:p-10 sm:pt-6 min-h-141">
           <AppRoutes />
-        </div>
       </Content>
       <CustomFooter />
     </Layout>

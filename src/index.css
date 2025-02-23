@@ -14,6 +14,11 @@
   --color-gray-950: oklch(0.129 0.042 264.695);
 }
 
+main {
+  min-height: calc(100vh - 122px) !important;
+}
+
+
 .scrollbar-custom::-webkit-scrollbar {
   height: 6px;
 }
@@ -37,8 +42,4 @@
 
 .custom-search .ant-input-group-addon button {
   height: 60px !important;
-}
-
-:root {
- 
 }

@@ -10,12 +10,14 @@ export interface MoviesSearchProps {
 
 export const MoviesSearch: React.FC<MoviesSearchProps> = ({ loading, handleSearch }) => {
   return (
-    <Row gutter={16} align="middle" className="p-0 sm:p-12  flex justify-center items-center">
-      <Title level={2} className="text-center">Busca tu Película o Serie favorita</Title>
-      <Col xs={24} sm={24} className="mb-10 sm:mb-0">
+    <Row className="p-0 pb-4 mx-5 sm:p-10 flex flex-col justify-center items-center gap-4">
+      <Col xs={24} sm={24}>
+        <Title level={2} className="text-center">Busca tu Película o Serie favorita</Title>
+      </Col>
+      <Col xs={24} sm={12} md={12} lg={12} xl={12} xxl={8}  className="w-full">
         <Search
           placeholder="Busca tu película o Serie..."
-          className="custom-search"
+          className="custom-search w-full"
           size="large"
           loading={loading}
           onSearch={handleSearch}
