@@ -43,3 +43,7 @@ main {
 .custom-search .ant-input-group-addon button {
   height: 60px !important;
 }
+
+.detail-card.ant-card .ant-card-body {
+  padding: 0px !important;
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Pagination } from "antd";
-import useMovies from "../../hooks/useMovies";
+import { useMovies } from "../../hooks/useMovies";
 import { useSearchParams } from "react-router-dom";
 import { GridSkeleton } from "../../components";
 import { HomeAlerts, MoviesGrid, MoviesSearch } from "./components";
@@ -10,7 +10,7 @@ const Home = () => {
   const [query, setQuery] = useState('');
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [page, setPage] = useState(Number(searchParams.get("page")) || 1);
-  const { movies, totalResults, loading, error } = useMovies('s', query);
+  const { movies, totalResults, loading, error } = useMovies(query);
 
   const setQueryParams = () => {
     search.length > 0 && setQuery(`${search}&page=${page}`);
@@ -32,7 +32,7 @@ const Home = () => {
     <div className="mt-4">
       <MoviesSearch loading={loading} handleSearch={handleSearch} />
       {loading ? (
-        <GridSkeleton />
+        <GridSkeleton cardNumber={4} />
       ) : (
         !error && search?.length > 0 && (
           <>
