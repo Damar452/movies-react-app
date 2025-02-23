@@ -1,6 +1,6 @@
 import React from 'react';
 import { CustomFooter, CustomHeader } from './components';
-import AppRoutes from './routes/index';
+import AppRoutes from './routes';
 import { Layout } from 'antd';
 const { Content } = Layout;
 
