@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Card } from "antd"
-import { Movie } from "../types/movie.type";
+import { Movie } from "../core/types/movie.type";
 
 export interface MovieCardProps {
   movie: Movie;

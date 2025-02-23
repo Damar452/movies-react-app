@@ -1,7 +1,7 @@
 
 import { Col, Row } from "antd";
 import React from "react";
-import { Movie } from "../../../types/movie.type";
+import { Movie } from "../../../core/types/movie.type";
 import { MovieCard } from "../../../components";
 
 export interface MoviesGridProps {
