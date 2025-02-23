@@ -15,7 +15,7 @@ export type UseMovieDetailResponse = {
   error: string | null;
 }
 
-const useMovies = (search: string): UseMoviesResponse => {
+const useMovies = (search: string, page: number): UseMoviesResponse => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [totalResults, setTotalResults] = useState<any>([]);
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ const useMovies = (search: string): UseMoviesResponse => {
     const fetchMovies = async () => {
       try {
         setLoading(true);
-        const { Search, totalResults, Error } = await getMovies('s', search);
+        const { Search, totalResults, Error } = await getMovies('s', `${search}&page=${page}`);
         const customError = Error ? 'No encontramos resultados para:' : null;
         const responseMovies = Error ? [] : Search;
         setError(customError);
@@ -41,7 +41,7 @@ const useMovies = (search: string): UseMoviesResponse => {
     };
 
     fetchMovies();
-  }, [search]);
+  }, [search, page]);
 
   return { movies, totalResults, loading, error };
 };

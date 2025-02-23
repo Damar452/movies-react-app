@@ -4,6 +4,7 @@ import React from "react";
 import { Movie } from "../../../core/types/movie.type";
 import { MovieCard } from "../../../components";
 import { useNavigate } from "react-router-dom";
+import { scrollTop } from "../../../core/utils/scroll.util";
 
 export interface MoviesGridProps {
   movies: Movie[];
@@ -14,6 +15,7 @@ export const MoviesGrid: React.FC<MoviesGridProps> = ({ movies }) => {
 
   const handleDetail = (imdbID: string) => {
     navigate(`/movie/${imdbID}`);
+    scrollTop();
   };
 
   return (

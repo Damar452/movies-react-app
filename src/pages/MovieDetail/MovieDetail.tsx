@@ -2,7 +2,7 @@ import React from "react";
 import { useMovieDetail } from "../../hooks/useMovies";
 import { useParams } from "react-router-dom";
 import { Card, Col, Row } from "antd";
-import { BackButton, GridSkeleton } from "../../components";
+import { BackButton, ButtonLike, GridSkeleton } from "../../components";
 import { Typography } from 'antd';
 import { DetailItem } from "./components/DetailItem";
 import { DetailError } from "./components/DetailError";
@@ -13,7 +13,7 @@ const MovieDetail = () => {
   const { movie, loading, error } = useMovieDetail(id!);
 
   return (
-    <div className="mt-4 mx-2">
+    <div className="mt-10 mx-2">
       <BackButton />
       {loading && (<GridSkeleton cardNumber={1} />)}
       {error && (<DetailError />)}
@@ -30,7 +30,8 @@ const MovieDetail = () => {
 
               <Col xs={24} sm={16} className="p-5 pe-8">
                 <div className="flex justify-center">
-                  <Title level={3}>{movie.Title}</Title>
+                  <Title level={3} className="mr-5">{movie.Title}</Title>
+                  <ButtonLike movie={movie} />
                 </div>
                 <div className="details">
                   <Row>
@@ -38,14 +39,15 @@ const MovieDetail = () => {
                   </Row>
                   <Row gutter={50}>
                     <DetailItem text="Géneros:" value={movie.Genre} isTag={true} />
-                    <DetailItem text="Premios:" value={movie.Awards} />
+                    <DetailItem text="Tipo:" value={movie.Type} isTag={true}/>
                   </Row>
 
                   <Row gutter={50}>
                     <DetailItem text="Director:" value={movie.Director} />
-                    <DetailItem text="Escritores:" value={movie.Writer} />
+                    <DetailItem text="Premios:" value={movie.Awards} />
                   </Row>
 
+                  <DetailItem text="Escritores:" value={movie.Writer} />
                   <DetailItem text="Actores:" value={movie.Actors} />
 
                   <Row gutter={50}>

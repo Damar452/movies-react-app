@@ -4,26 +4,26 @@ import { useMovies } from "../../hooks/useMovies";
 import { useSearchParams } from "react-router-dom";
 import { GridSkeleton } from "../../components";
 import { HomeAlerts, MoviesGrid, MoviesSearch } from "./components";
+import { scrollTop } from "../../core/utils/scroll.util";
 
 const Home = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [query, setQuery] = useState('');
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [page, setPage] = useState(Number(searchParams.get("page")) || 1);
-  const { movies, totalResults, loading, error } = useMovies(query);
-
-  const setQueryParams = () => {
-    search.length > 0 && setQuery(`${search}&page=${page}`);
-  }
+  const { movies, totalResults, loading, error } = useMovies(search, page);
 
   const handleSearch = (value: string) => {
-    setQueryParams();
+    scrollTop();
     setSearch(value);
     setPage(1);
   };
 
+  const handlePageChange = (page: number) => {
+    scrollTop();
+    setPage(page);
+  };
+
   useEffect(() => {
-    setQueryParams();
     const params = search.length > 0 ? { search, page: page.toString() } : undefined;
     setSearchParams(params);
   }, [search, page]);
@@ -37,17 +37,17 @@ const Home = () => {
         !error && search?.length > 0 && (
           <>
             <MoviesGrid movies={movies} />
-            <Pagination 
-              align="center" 
-              current={page} 
-              defaultCurrent={page} 
-              total={totalResults} 
-              onChange={setPage} 
+            <Pagination
+              align="center"
+              current={page}
+              defaultCurrent={page}
+              total={totalResults}
+              onChange={handlePageChange}
             />
           </>
         )
       )}
-      <HomeAlerts error={error} search={search} />
+      <HomeAlerts error={error!} search={search} />
     </div>
   )
 }
