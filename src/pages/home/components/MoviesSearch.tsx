@@ -22,6 +22,8 @@ export const MoviesSearch: React.FC<MoviesSearchProps> = ({ loading, handleSearc
           loading={loading}
           onSearch={handleSearch}
           enterButton
+          color="purple"
+          variant="filled"
         />
       </Col>
     </Row>
